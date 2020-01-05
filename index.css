@@ -1,0 +1,60 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    text-align: center;
+    margin: 0;
+    background: linear-gradient(90deg, wheat, lightblue);
+}
+
+#game {
+    width: 50vw;
+    min-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #aaa;
+}
+
+#scoreboard {
+    background-color: white;
+}
+
+#gameboard {
+    height: 50vw;
+    min-height: 400px;
+}
+
+#gameboard > div {
+    margin: 0 auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+.tile {
+    display: table;
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+.tile.x::before {
+    content: 'X';
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    color: darkblue;
+}
+
+.tile.o::before {
+    content: 'O';
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    color: red;
+}
