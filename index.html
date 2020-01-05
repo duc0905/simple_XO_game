@@ -19,6 +19,8 @@
                 X &ThickSpace; : &ThickSpace; <span id="x-score"></span> &ThickSpace; &mdash; &ThickSpace; O &ThickSpace; : &ThickSpace; <span id="o-score"></span>
             </span>
         </div>
+
+
         <div id="gameboard">
             <div>
                 
@@ -26,10 +28,12 @@
         </div>
     </div>
 
+
     <script src="./index.js" type="text/javascript"></script>
     <script>
         window.onload = () => {
             let game = new Game();
+            console.log(game.state);
         }
     </script>
 </body>

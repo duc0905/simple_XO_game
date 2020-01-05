@@ -4,10 +4,11 @@ class Game {
         this.state = {
             board: Array(20).fill(null).map((_, i) => Array(20).fill(null).map((_, j) => (
                 new Tile({
-                    row: i,
-                    column: j,
-                    turn: this.turn,
-                    getTurn: () => self.changeTurn()
+                    getTurn: () => {
+                        this.updateBoardState(i, j, self.getTurn())
+                        
+                        return self.getTurn();
+                    }
                 })
             ))),
             turn: 'o',
@@ -19,17 +20,24 @@ class Game {
         });
     }
 
+    getTurn = () => this.state.turn;
+
     changeTurn = () => {
         if(this.state.turn === 'x') {
             this.state.turn = 'o';
         } else {
             this.state.turn = 'x';
         }
+
         return this.state.turn;
     }
 
     check = (row, column) => {
+        
+    }
 
+    end = () => {
+        
     }
 
     updateBoardState = (row, column, turn) => {
@@ -102,7 +110,7 @@ class Tile {
         this.component.addEventListener('click', this.choose);
     }
 
-    choose = () => {
+    choose = (turn) => {
         this.component.classList.add(this.getTurn());
     }
 
